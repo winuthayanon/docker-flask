@@ -16,5 +16,7 @@ vi docker-compose.yml
 # Start
 docker-compose up -d
 
+# Go to https://demo.domain.com
+
 # Stop
 docker-compose down
