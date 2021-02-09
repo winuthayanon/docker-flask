@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  jupyterhub-app:
+    container_name: demo
+    image: winuthayanon/flask_v2-1000
+    restart: unless-stopped
+    expose:
+      - "8000"
+    volumes:
+      - "/home/demo/Docker/docker-flask:/home/scrna/data"
+    environment:
+      - VIRTUAL_HOST=demo.domain.com
+      - LETSENCRYPT_HOST=demo.domain.com
+      - LETSENCRYPT_EMAIL=demo@domain.com
+      - VIRTUAL_NETWORK=webproxy
+      - VIRTUAL_PORT=8000
+
+networks:
+  default:
+    external:
+      name: webproxy
